@@ -1,0 +1,28 @@
+.container {
+    max-width: 1100px;
+    margin: 0 auto; /* 0 top/bottom auto left/right so will center left/right*/
+    padding: 0 30px; /* 30px padding left/right */
+}
+
+.menu-item-boxes .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.menu-item-box {
+    flex: 1 1 40%; /* grow rate shrink rate flex basis */
+    background: #0a51cc;
+    color: #fff;
+    border-radius: 10px;
+    margin: 20px 20px; /* margin is outside */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6); /* parameters are (red, green, blue, alpha) */
+    padding: 15px 20px; /* top/bottom left/right*/ /* padding is inside */ 
+    height: 200px;
+}
+
+h1, p{
+    text-align: center;
+}
+

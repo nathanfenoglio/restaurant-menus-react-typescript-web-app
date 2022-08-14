@@ -1,0 +1,66 @@
+/* just reset any of the default settings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none; /* get rid of bullet points for list items */
+}
+
+.navbar {
+    background: #3474e6;
+    color: #fff;
+    height: 60px;
+}
+
+/* the flexbox logo in the navbar */
+.navbar .logo a {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+/* the a link tag in the navbar */
+.navbar a {
+    color: #fff;
+    text-decoration: none; /* get rid of default underline for a tag links */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* change color when links are hovered over */
+.navbar a:hover {
+    color: lightblue;
+}
+
+.nav-container {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.navbar .container {
+    width: 100%;
+    display: flex;
+    /* since we have the logo and list (of 3 items) using space-between pushes the logo all the way to the left and the list elements all the way to the right */
+    /* justify-content: space-between;  */
+    justify-content: justify-left;
+    margin-left: 20%; 
+    align-items: center; /* centers vertically (cross axis) (main access is horizontal by default) */
+    height: 100%; /* navbar container is within navbar which has a height set, but this container does not have one so tell it to fill 100% of its parent navbar container so that it knows the height size to center within */
+}
+
+/* flexbox container for the 3 list elements */
+.navbar ul {
+    display: flex;
+}
+
+/* add margin to the individual list items in the list */
+.navbar ul li {
+    margin-left: 20px;
+}
+
+

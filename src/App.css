@@ -1,0 +1,5 @@
+.container {
+    max-width: 1100px;
+    margin: 0 auto; /* 0 top/bottom auto left/right so will center left/right*/
+    padding: 0 30px; /* 30px padding left/right */
+}
