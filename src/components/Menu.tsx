@@ -5,16 +5,13 @@ import { useHistory } from 'react-router-dom';
 type Props = {
   allMenuItems: MenuItem[];
   restaurantName: string;
-  cartItemsDiner1: MenuItem[];
-  cartItemsDiner2: MenuItem[];
-  handleAddToCartDiner1: (selectedMenuItem: MenuItem) => void;
-  handleAddToCartDiner2: (selectedMenuItem: MenuItem) => void;
+  cartItems: MenuItem[];
+  addToCart: (selectedMenuItem: MenuItem, diner: number) => void;
   diner: number;
   handleSetDiner: (selectedDiner: number) => void;
   total: number;
   validateCartOuter: () => void;
-  removeItemFromCartDiner1: (id: number) => void;
-  removeItemFromCartDiner2: (id: number) => void;
+  removeItemFromCart: (id: number, diner: number) => void;
 }
 
 const Menu:React.FC<Props> = (props) => {
@@ -47,7 +44,7 @@ const Menu:React.FC<Props> = (props) => {
   return (
     <div className='menu-page'>
       {/* set up side bar for which diner that you are selecting for
-      display total, show diner's items and allow to delete */}
+      display total, show diner's items and allow ability to delete item */}
       <div className='sidebar-container'>
         <h1>cart</h1>
         <h2 style={{marginTop: "10px"}}>select items for</h2>
@@ -74,18 +71,17 @@ const Menu:React.FC<Props> = (props) => {
           </label>
           <div>
             <h2 style={{color: "fuchsia"}}>diner 1 cart items</h2>
-              {props.cartItemsDiner1.map((item) => (
+              {props.cartItems.map((item) => (
                 item.diner === 1 
-                  ? <div className='cart-items'><p key={item.id} onClick={() => props.removeItemFromCartDiner1(item.id)}>{item.name}</p></div>
-                  : <></>
-                
+                  ? <div className='cart-items'><p key={item.id} onClick={() => props.removeItemFromCart(item.id, 1)}>{item.name}</p></div>
+                  : <></>                
               ))}
           </div>
           <div>
             <h2 style={{color: "yellowgreen"}}>diner 2 cart items</h2>
-              {props.cartItemsDiner2.map((item) => (
+              {props.cartItems.map((item) => (
                 item.diner === 2
-                  ? <div className='cart-items'><p key={item.id} onClick={() => props.removeItemFromCartDiner2(item.id)}>{item.name}</p></div>
+                  ? <div className='cart-items'><p key={item.id} onClick={() => props.removeItemFromCart(item.id, 2)}>{item.name}</p></div>
                   : <></> 
               ))}
           </div>
@@ -96,8 +92,7 @@ const Menu:React.FC<Props> = (props) => {
           <button onClick={props.validateCartOuter}>check out</button>
         </div>
       </div>
-      <div className='menu-items-container'>
-      
+      <div className='menu-items-container'>      
         <div className='headers'>
           <h1>{restaurantFilteredMenuItems[0].restaurant}</h1>
         </div>
@@ -112,8 +107,8 @@ const Menu:React.FC<Props> = (props) => {
                 key={menuItem.id} 
                 onClick={
                   props.diner === 1 
-                    ? () => props.handleAddToCartDiner1(menuItem) 
-                    : () => props.handleAddToCartDiner2(menuItem)
+                    ? () => props.addToCart(menuItem, 1) 
+                    : () => props.addToCart(menuItem, 2)
                 }
               >
                 <h2>{menuItem.name}</h2>
@@ -135,8 +130,8 @@ const Menu:React.FC<Props> = (props) => {
                   key={menuItem.id} 
                   onClick={
                     props.diner === 1 
-                      ? () => props.handleAddToCartDiner1(menuItem) 
-                      : () => props.handleAddToCartDiner2(menuItem)
+                      ? () => props.addToCart(menuItem, 1) 
+                      : () => props.addToCart(menuItem, 2)
                   }
                 >
                   <h2>{menuItem.name}</h2>
@@ -156,9 +151,10 @@ const Menu:React.FC<Props> = (props) => {
                 <div 
                   className='menu-item-box' 
                   key={menuItem.id} 
-                  onClick={props.diner === 1 
-                    ? () => props.handleAddToCartDiner1(menuItem) 
-                    : () => props.handleAddToCartDiner2(menuItem)
+                  onClick={
+                    props.diner === 1 
+                    ? () => props.addToCart(menuItem, 1) 
+                    : () => props.addToCart(menuItem, 2)
                   }
                 >
                   <h2>{menuItem.name}</h2>
