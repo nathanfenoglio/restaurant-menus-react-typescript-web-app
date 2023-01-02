@@ -14,5 +14,4 @@ npx create-react-app restaurant_menu --template typescript
 npm install react-router-dom@5 to install version 5
 npm install --save @types/react-router-dom@5
 
-cd directory to react_front_end_save_graphs_1/react_front_end_save_graphs_1/
 npm start (in terminal)
