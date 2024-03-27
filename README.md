@@ -15,6 +15,6 @@ json-server for restaurant data locally
 to create front end project <br/>
 npx create-react-app restaurant_menu --template typescript <br/>
 npm install react-router-dom@5 to install version 5 <br/>
-npm install --save @types/react-router-dom@5 <br/> <br/>
+npm install --save @types/react-router-dom@5 <br/> 
 
 npm start (in terminal)
