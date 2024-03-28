@@ -17,4 +17,6 @@ npx create-react-app restaurant_menu --template typescript <br/>
 npm install react-router-dom@5 to install version 5 <br/>
 npm install --save @types/react-router-dom@5 <br/> 
 
-npm start (in terminal)
+npm start (in terminal) <br/>
+
+![alt_text](https://github.com/nathanfenoglio/restaurant-menus-react-typescript-web-app/blob/master/images/screenshot_2.png)
